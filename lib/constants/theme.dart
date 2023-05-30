@@ -11,6 +11,8 @@ final themeData = ThemeData(
         fontSize: 36.0, fontFamily: GoogleFonts.openSans().fontFamily),
     titleMedium: TextStyle(
         fontSize: 22.0, fontFamily: GoogleFonts.openSans().fontFamily),
+    bodyLarge: TextStyle(
+        fontSize: 26.0, fontFamily: GoogleFonts.openSans().fontFamily),
     bodyMedium: TextStyle(
         fontSize: 14.0, fontFamily: GoogleFonts.openSans().fontFamily),
   ),
