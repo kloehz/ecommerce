@@ -16,7 +16,7 @@ class Buttons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RoundedButton(
-                callback: () => context.go('/login'), text: 'Ingresar'),
+                callback: () => context.push('/login'), text: 'Ingresar'),
             const SizedBox(height: 20),
             RoundedButton(
               callback: () {},
