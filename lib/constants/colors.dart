@@ -4,8 +4,8 @@ class GradientColors {
   GradientColors._();
 
   static List<Color> darkGradient = [
-    const Color(0xFF3747AC),
-    const Color(0xFF3747AC).withOpacity(0.5)
+    const Color.fromARGB(255, 131, 230, 250),
+    const Color.fromARGB(255, 131, 230, 250).withOpacity(0.4)
   ];
 }
 

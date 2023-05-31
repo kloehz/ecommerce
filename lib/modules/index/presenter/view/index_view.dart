@@ -11,30 +11,27 @@ class IndexView extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Material(
-      child: Container(
-        color: AppColors.primaryColor,
-        child: Column(
-          children: [
-            SizedBox(height: size.height * 0.1),
-            SvgPicture.asset(
-              'assets/images/index.svg',
-              width: size.width,
+      child: Column(
+        children: [
+          SizedBox(height: size.height * 0.1),
+          SvgPicture.asset(
+            'assets/images/index.svg',
+            width: size.width,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 24, bottom: 12),
+            child: Text(
+              'SimplexBytes',
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24, bottom: 12),
-              child: Text(
-                'SimplexBytes',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            Text(
-              'Un simple espacio para resolver cualquier necesidad',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const Buttons()
-          ],
-        ),
+          ),
+          Text(
+            'Un simple espacio para resolver cualquier necesidad',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const Buttons()
+        ],
       ),
     );
   }

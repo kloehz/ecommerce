@@ -16,7 +16,7 @@ class HeaderClippedWithBackButton extends StatelessWidget {
         CustomPaint(
           painter: ClipShadowShadowPainter(
             clipper: SemiCircleClipper(),
-            shadow: const Shadow(blurRadius: 35),
+            shadow: const Shadow(blurRadius: 20),
           ),
           child: ClipPath(
               clipper: SemiCircleClipper(),
