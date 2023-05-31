@@ -1,4 +1,5 @@
 import 'package:ecommerce/constants/colors.dart';
+import 'package:ecommerce/modules/login/presenter/widgets/no_sign_up_yet.dart';
 import 'package:ecommerce/modules/login/presenter/widgets/remember_me_and_recover_pass.dart';
 import 'package:ecommerce/widgets/buttons/rounded_button.dart';
 import 'package:ecommerce/widgets/inputs/gradient_input.dart';
@@ -26,26 +27,7 @@ class FormInputs extends StatelessWidget {
           const RememberMeAndRecoverPass(),
           const Spacer(),
           RoundedButton(callback: () {}, text: 'Ingresar'),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('No esta registrado?'),
-                const SizedBox(width: 12),
-                GestureDetector(
-                  onTap: () => context.goNamed('/index'),
-                  child: Container(
-                      decoration: const BoxDecoration(
-                          border: Border(bottom: BorderSide(width: 1))),
-                      child: const Text(
-                        'Registrese',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                )
-              ],
-            ),
-          ),
+          const NoSignUpYet(),
         ],
       ),
     );
