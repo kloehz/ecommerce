@@ -14,9 +14,12 @@ class IndexView extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: size.height * 0.1),
-          SvgPicture.asset(
-            'assets/images/index.svg',
-            width: size.width,
+          Hero(
+            tag: 'logoTag',
+            child: SvgPicture.asset(
+              'assets/images/index.svg',
+              width: size.width,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 24, bottom: 12),
