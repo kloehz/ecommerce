@@ -13,23 +13,27 @@ class FormInputs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          const SizedBox(height: 20),
-          const GradientTextInput(label: 'Usuario', icon: Icons.person),
-          const SizedBox(
-            height: 20,
-          ),
-          const GradientTextInput(label: 'Contraseña', icon: Icons.lock),
-          const SizedBox(height: 20),
-          const RememberMeAndRecoverPass(),
-          const Spacer(),
-          RoundedButton(callback: () {}, text: 'Ingresar'),
-          const NoSignUpYet(),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        const SizedBox(height: 20),
+        const GradientTextInput(label: 'Usuario', icon: Icons.person),
+        const SizedBox(
+          height: 20,
+        ),
+        const GradientTextInput(
+          label: 'Contraseña',
+          icon: Icons.password,
+          isPassword: true,
+        ),
+        const SizedBox(height: 20),
+        const RememberMeAndRecoverPass(),
+        const SizedBox(
+          height: 48,
+        ),
+        RoundedButton(callback: () {}, text: 'Ingresar'),
+        const NoSignUpYet(),
+      ],
     );
   }
 }

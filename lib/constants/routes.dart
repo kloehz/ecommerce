@@ -22,6 +22,7 @@ final routes = GoRouter(
 CustomTransitionPage<dynamic> animatedTransition(
     BuildContext context, GoRouterState state, Widget child) {
   return CustomTransitionPage(
+      transitionDuration: const Duration(milliseconds: 600),
       child: child,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(

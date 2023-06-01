@@ -11,16 +11,15 @@ class LoginView extends StatelessWidget {
     final safeAreaTop = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            height: safeAreaTop,
-            color: AppColors.primaryColor,
-          ),
-          const HeaderClippedWithBackButton(),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: safeAreaTop,
+              color: AppColors.primaryColor,
+            ),
+            const HeaderClippedWithBackButton(),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28),
               child: Column(
                 children: [
@@ -32,9 +31,9 @@ class LoginView extends StatelessWidget {
                   const FormInputs()
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
