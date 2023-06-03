@@ -1,4 +1,3 @@
-import 'package:ecommerce/constants/colors.dart';
 import 'package:ecommerce/modules/index/presenter/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

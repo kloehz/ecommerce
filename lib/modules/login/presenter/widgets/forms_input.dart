@@ -1,4 +1,3 @@
-import 'package:ecommerce/constants/colors.dart';
 import 'package:ecommerce/modules/login/presenter/widgets/no_sign_up_yet.dart';
 import 'package:ecommerce/modules/login/presenter/widgets/remember_me_and_recover_pass.dart';
 import 'package:ecommerce/widgets/buttons/rounded_button.dart';

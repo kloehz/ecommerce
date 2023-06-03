@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 final themeData = ThemeData(
   primaryColor: AppColors.primaryColor,
   fontFamily: GoogleFonts.openSans().fontFamily,
-  appBarTheme: AppBarTheme(color: Colors.grey[50], elevation: 0),
+  appBarTheme: AppBarTheme(color: Colors.grey[100], elevation: 0),
   iconTheme: const IconThemeData(color: Colors.black87),
   checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.all(AppColors.primaryColor),
