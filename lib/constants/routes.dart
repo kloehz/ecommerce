@@ -1,20 +1,27 @@
+import 'package:ecommerce/modules/home/presenter/view/home_view.dart';
 import 'package:ecommerce/modules/index/presenter/view/index_view.dart';
 import 'package:ecommerce/modules/login/presenter/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final routes = GoRouter(
-  initialLocation: '/index',
+  initialLocation: '/home',
   routes: [
     GoRoute(
-      path: '/index',
-      pageBuilder: (context, state) =>
-          animatedTransition(context, state, const IndexView()),
-    ),
+        path: '/',
+        pageBuilder: (context, state) =>
+            animatedTransition(context, state, const IndexView()),
+        routes: [
+          GoRoute(
+            path: 'login',
+            pageBuilder: (context, state) =>
+                animatedTransition(context, state, const LoginView()),
+          ),
+        ]),
     GoRoute(
-      path: '/login',
+      path: '/home',
       pageBuilder: (context, state) =>
-          animatedTransition(context, state, const LoginView()),
+          animatedTransition(context, state, const HomeView()),
     ),
   ],
 );

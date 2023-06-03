@@ -31,7 +31,7 @@ class FormInputs extends StatelessWidget {
         const SizedBox(
           height: 48,
         ),
-        RoundedButton(callback: () {}, text: 'Ingresar'),
+        RoundedButton(callback: () => context.go('/home'), text: 'Ingresar'),
         const NoSignUpYet(),
       ],
     );

@@ -12,5 +12,6 @@ class GradientColors {
 class AppColors {
   AppColors._();
 
-  static const Color primaryColor = Color(0xffc9f0f8);
+  static const Color primaryColor = Color(0xff4042b7);
+  static const Color secondaryColor = Color(0xffc9f0f8);
 }

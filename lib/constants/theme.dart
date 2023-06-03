@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final themeData = ThemeData(
-  // brightness: Brightness.dark,
-  // primaryColor: Colors.lightBlue[800],
+  primaryColor: AppColors.primaryColor,
   fontFamily: GoogleFonts.openSans().fontFamily,
+  appBarTheme: AppBarTheme(color: Colors.grey[50], elevation: 0),
+  iconTheme: const IconThemeData(color: Colors.black87),
   checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.all(AppColors.primaryColor),
       checkColor: MaterialStateProperty.all(Colors.black)),

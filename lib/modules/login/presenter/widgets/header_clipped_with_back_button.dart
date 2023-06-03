@@ -23,7 +23,7 @@ class HeaderClippedWithBackButton extends StatelessWidget {
               child: Container(
                 height: 200,
                 width: double.infinity,
-                color: AppColors.primaryColor,
+                color: AppColors.secondaryColor,
                 child: Hero(
                   tag: 'logoTag',
                   child: SvgPicture.asset(

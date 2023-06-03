@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
           children: [
             Container(
               height: safeAreaTop,
-              color: AppColors.primaryColor,
+              color: AppColors.secondaryColor,
             ),
             const HeaderClippedWithBackButton(),
             Padding(
