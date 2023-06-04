@@ -15,12 +15,11 @@ class CustomTabBar extends StatelessWidget {
     return AnimatedBottomNavigationBar(
       icons: iconList,
       activeIndex: 0,
-      backgroundColor: Colors.white,
       shadow: const Shadow(blurRadius: 2, color: Colors.black54),
       gapLocation: GapLocation.center,
+      notchSmoothness: NotchSmoothness.softEdge,
       activeColor: AppColors.primaryColor,
       inactiveColor: Colors.grey,
-      notchSmoothness: NotchSmoothness.verySmoothEdge,
       leftCornerRadius: 32,
       rightCornerRadius: 32,
       onTap: (index) {},
