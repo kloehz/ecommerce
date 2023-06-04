@@ -1,12 +1,12 @@
 import 'package:ecommerce/constants/colors.dart';
+import 'package:ecommerce/modules/home/data/models/get_products_response/get_products_response.dart';
 import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({
-    super.key,
-  });
+  const ProductWidget({super.key, required this.product});
+
+  final GetProductsModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -43,35 +43,26 @@ class ProductWidget extends StatelessWidget {
                 // color: Colors.cyanAccent,
                 // shape: BoxShape.circle,
                 ),
-            child: Image.network(
-              'http://http2.mlstatic.com/D_600566-MLA49116870493_022022-I.jpg',
-            ),
+            child: Image.network(product.thumbnail),
           ),
-          const Text(
-            'Nueva zapatilla text largo largo',
+          Text(
+            product.title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
                 color: AppColors.primaryColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 18),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
-              '\$18.000,00',
-              style: TextStyle(
+              '\$${product.price.toStringAsFixed(2)}',
+              style: const TextStyle(
                   color: AppColors.primaryColor,
                   fontSize: 20,
                   fontWeight: FontWeight.w600),
             ),
-          ),
-          RatingStars(
-            starBuilder: (_, __) {
-              return const Icon(Icons.star);
-            },
-            maxValueVisibility: false,
-            valueLabelVisibility: false,
           )
         ],
       ),
