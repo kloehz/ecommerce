@@ -39,10 +39,7 @@ class ProductWidget extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(20),
-            decoration: const BoxDecoration(
-                // color: Colors.cyanAccent,
-                // shape: BoxShape.circle,
-                ),
+            decoration: const BoxDecoration(),
             child: Image.network(product.thumbnail),
           ),
           Text(
@@ -63,9 +60,40 @@ class ProductWidget extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.w600),
             ),
-          )
+          ),
+          ReviewStars()
         ],
       ),
+    );
+  }
+}
+
+class ReviewStars extends StatelessWidget {
+  const ReviewStars({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.star_border_outlined,
+        ),
+        Icon(
+          Icons.star_border_outlined,
+        ),
+        Icon(
+          Icons.star_border_outlined,
+        ),
+        Icon(
+          Icons.star_border_outlined,
+        ),
+        Icon(
+          Icons.star_border_outlined,
+        ),
+      ],
     );
   }
 }

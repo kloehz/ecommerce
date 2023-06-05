@@ -8,7 +8,7 @@ final themeData = ThemeData(
   appBarTheme: AppBarTheme(color: Colors.grey[100], elevation: 0),
   iconTheme: const IconThemeData(color: Colors.black87),
   checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.all(AppColors.primaryColor),
+      fillColor: MaterialStateProperty.all(AppColors.secondaryColor),
       checkColor: MaterialStateProperty.all(Colors.black)),
   textTheme: TextTheme(
     displayLarge: const TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
