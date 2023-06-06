@@ -2,6 +2,9 @@ import 'package:ecommerce/constants/colors.dart';
 import 'package:ecommerce/modules/home/data/models/get_products_response/get_products_response.dart';
 import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+final oCcy = NumberFormat("#,##0.00", "es_AR");
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({super.key, required this.product});
@@ -54,14 +57,14 @@ class ProductWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
-              '\$${product.price.toStringAsFixed(2)}',
+              '\$${oCcy.format(product.price)}',
               style: const TextStyle(
                   color: AppColors.primaryColor,
                   fontSize: 20,
                   fontWeight: FontWeight.w600),
             ),
           ),
-          ReviewStars()
+          const ReviewStars()
         ],
       ),
     );

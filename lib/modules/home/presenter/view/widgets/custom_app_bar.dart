@@ -11,6 +11,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: true,
+      title: const Text('SB', style: TextStyle(color: Colors.black),),
       leading: GestureDetector(
         onTap: () {
           scaffoldKey.currentState?.openDrawer();

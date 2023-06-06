@@ -53,7 +53,7 @@ class HomeView extends StatelessWidget {
                           title: SizedBox(
                             width: width,
                             height: 40,
-                            child: CategoriesFilter(),
+                            child: const CategoriesFilter(),
                           ),
                         ),
                         SliverPadding(
@@ -115,7 +115,7 @@ class ItemCategoryFilter extends StatelessWidget {
       required this.icon});
 
   final String name;
-  final IconData icon;
+  final Image icon;
   final bool isSelected;
 
   @override
@@ -126,10 +126,7 @@ class ItemCategoryFilter extends StatelessWidget {
           color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: Row(
         children: [
-          Icon(
-            icon,
-            color: Colors.grey,
-          ),
+          icon,
           const SizedBox(
             width: 8,
           ),
@@ -144,12 +141,12 @@ class ItemCategoryFilter extends StatelessWidget {
   }
 }
 
-const List<Map<String, dynamic>> mockedCategories = [
-  {'name': 'Zapatillas', 'icon': Icons.card_giftcard},
-  {'name': 'Reloj', 'icon': Icons.timelapse},
-  {'name': 'Mochilas', 'icon': Icons.shopping_bag},
-  {'name': 'Authomovil', 'icon': Icons.car_rental},
-  {'name': 'Ropa', 'icon': Icons.person},
-  {'name': 'Motocicletas', 'icon': Icons.motorcycle},
-  {'name': 'Electrodomesticos', 'icon': Icons.card_giftcard},
+List<Map<String, dynamic>> mockedCategories = [
+  {'name': 'Zapatillas', 'icon': Image.asset('assets/images/categories/running-shoes.png')},
+  {'name': 'Reloj', 'icon': Image.asset('assets/images/categories/wrist-watch.png')},
+  {'name': 'Mochilas', 'icon': Image.asset('assets/images/categories/school-bag.png')},
+  {'name': 'Authomovil', 'icon': Image.asset('assets/images/categories/car.png')},
+  {'name': 'Ropa', 'icon': Image.asset('assets/images/categories/male-clothes.png')},
+  {'name': 'Motocicletas', 'icon': Image.asset('assets/images/categories/motorbike.png')},
+  {'name': 'Electrodomesticos', 'icon': Image.asset('assets/images/categories/electric-appliance.png')},
 ];
