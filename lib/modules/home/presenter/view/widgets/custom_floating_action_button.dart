@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
@@ -10,7 +12,7 @@ class CustomFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () => print('Pressed'),
+      onPressed: () => log('Pressed'),
       backgroundColor: AppColors.primaryColor,
       child: badges.Badge(
         position: badges.BadgePosition.topEnd(top: -24, end: -24),
