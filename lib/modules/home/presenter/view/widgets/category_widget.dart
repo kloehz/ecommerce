@@ -1,15 +1,15 @@
 import 'package:ecommerce/constants/colors.dart';
-import 'package:ecommerce/modules/home/data/models/get_products_response/get_products_response.dart';
+import 'package:ecommerce/modules/home/data/models/get_categories_response/get_categories_response.dart';
 import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 final oCcy = NumberFormat("#,##0.00", "es_AR");
 
-class ProductWidget extends StatelessWidget {
-  const ProductWidget({super.key, required this.product});
+class CategoryWidget extends StatelessWidget {
+  const CategoryWidget({super.key, required this.category});
 
-  final GetProductsModel product;
+  final GetCategoriesModel category;
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +40,23 @@ class ProductWidget extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: const BoxDecoration(),
-            child: Image.network(product.thumbnail),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              child: Image.network(
+                category.image,
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
           Text(
-            product.title,
+            category.title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
                 color: AppColors.primaryColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 18),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Text(
-              '\$${oCcy.format(product.price)}',
-              style: const TextStyle(
-                  color: AppColors.primaryColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600),
-            ),
           ),
           const ReviewStars()
         ],

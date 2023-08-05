@@ -1,7 +1,7 @@
-const baseURL = 'https://api.mercadolibre.com/sites/MLA';
+const baseURL = 'https://apimocha.com/kloehz';
 
 class Endpoints {
   Endpoints._();
 
-  static const search = '/search?q=';
+  static const getCategories = '/categoriesList';
 }

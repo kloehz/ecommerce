@@ -11,6 +11,8 @@ class HeaderClippedWithBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final safeAreaTop = MediaQuery.of(context).padding.top;
+
     return Stack(
       children: [
         CustomPaint(
@@ -21,25 +23,31 @@ class HeaderClippedWithBackButton extends StatelessWidget {
           child: ClipPath(
               clipper: SemiCircleClipper(),
               child: Container(
-                height: 200,
+                height: 200 + safeAreaTop,
                 width: double.infinity,
                 color: AppColors.secondaryColor,
-                child: Hero(
-                  tag: 'logoTag',
-                  child: SvgPicture.asset(
-                    'assets/images/index.svg',
-                    height: 200,
-                    width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.only(top: safeAreaTop),
+                  child: Hero(
+                    tag: 'logoTag',
+                    child: SvgPicture.asset(
+                      'assets/images/index.svg',
+                      height: 200,
+                      width: double.infinity,
+                    ),
                   ),
                 ),
               )),
         ),
-        Row(
-          children: [
-            IconButton(
-                onPressed: () => context.pop(),
-                icon: const Icon(Icons.arrow_back))
-          ],
+        Padding(
+          padding: EdgeInsets.only(top: safeAreaTop),
+          child: Row(
+            children: [
+              IconButton(
+                  onPressed: () => context.pop(),
+                  icon: const Icon(Icons.arrow_back))
+            ],
+          ),
         )
       ],
     );

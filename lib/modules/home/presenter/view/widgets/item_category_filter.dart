@@ -23,8 +23,7 @@ class CategoriesFilter extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(width: 8),
           itemBuilder: (_, index) {
             return ItemCategoryFilter(
-                isSelected: homeCubit.categorySelected ==
-                    mockedCategories[index]['name'],
+                isSelected: false,
                 name: mockedCategories[index]['name'],
                 icon: mockedCategories[index]['icon']);
           },
@@ -50,7 +49,7 @@ class ItemCategoryFilter extends StatelessWidget {
     final homeCubit = locator.get<HomeCubit>();
     return GestureDetector(
       onTap: () {
-        homeCubit.getProducts(name);
+        homeCubit.getCategories(name);
       },
       child: Container(
         padding: const EdgeInsets.all(8),

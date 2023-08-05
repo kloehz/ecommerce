@@ -8,16 +8,10 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final safeAreaTop = MediaQuery.of(context).padding.top;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: safeAreaTop,
-              color: AppColors.secondaryColor,
-            ),
             const HeaderClippedWithBackButton(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28),

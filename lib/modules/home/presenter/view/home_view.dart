@@ -1,100 +1,56 @@
+import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:ecommerce/injection.dart';
-import 'package:ecommerce/modules/home/data/models/get_products_response/get_products_response.dart';
 import 'package:ecommerce/modules/home/presenter/view/cubit/home_cubit.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_app_bar.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_drawer.dart';
-import 'package:ecommerce/modules/home/presenter/view/widgets/custom_floating_action_button.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_tab_bar.dart';
-import 'package:ecommerce/modules/home/presenter/view/widgets/item_category_filter.dart';
-import 'package:ecommerce/modules/home/presenter/view/widgets/product_widget.dart';
-import 'package:ecommerce/utils/shared_utils.dart';
+import 'package:ecommerce/modules/home/presenter/view/widgets/home_scroll_Items.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-    final homeCubit = locator.get<HomeCubit>();
-    homeCubit.getProducts();
-
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-          backgroundColor: Colors.grey[100],
-          key: scaffoldKey,
-          drawer: const CustomDrawer(),
-          appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(50),
-              child: CustomAppBar(scaffoldKey: scaffoldKey)),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: const CustomFloatingActionButton(),
-          bottomNavigationBar: const CustomTabBar(),
-          body: const SuccessWidget()),
-    );
-  }
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class SuccessWidget extends StatelessWidget {
-  const SuccessWidget({
-    super.key,
-  });
+class _HomeViewState extends State<HomeView> {
+  final _pageController = PageController(initialPage: 0);
+  final _controller = NotchBottomBarController(index: 0);
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  final List<Widget> bottomBarPages = [
+    const HomeScrollItems(),
+    const HomeScrollItems(),
+  ];
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final homeCubit = locator.get<HomeCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final width = context.width;
-    final homeCubit = locator.get<HomeCubit>();
-
-    return BlocBuilder<HomeCubit, HomeState>(
-      bloc: homeCubit,
-      builder: (context, state) {
-        return CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: Container(),
-              leadingWidth: 0,
-              snap: true,
-              floating: true,
-              title: SizedBox(
-                width: width,
-                height: 40,
-                child: const CategoriesFilter(),
-              ),
-            ),
-            state.when(
-                loading: () {
-                  return const SliverFillRemaining(
-                      child: Center(child: CircularProgressIndicator()));
-                },
-                failed: () => const SliverFillRemaining(
-                      child: Center(
-                          child:
-                              Text('Ha ocurrido un error, intente nuevamente')),
-                    ),
-                success: (items) {
-                  return SliverPadding(
-                    padding:
-                        const EdgeInsets.only(left: 12, right: 12, top: 16),
-                    sliver: SliverGrid.builder(
-                      itemCount: items.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 20,
-                          mainAxisSpacing: 20,
-                          childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height * 0.8),
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return ProductWidget(product: items[index]);
-                      },
-                    ),
-                  );
-                })
-          ],
-        );
-      },
-    );
+    return Scaffold(
+        backgroundColor: Colors.grey[100],
+        key: scaffoldKey,
+        drawer: const CustomDrawer(),
+        appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(50),
+            child: CustomAppBar(scaffoldKey: scaffoldKey)),
+        body: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: List.generate(
+              bottomBarPages.length, (index) => bottomBarPages[index]),
+        ),
+        extendBody: true,
+        bottomNavigationBar: (bottomBarPages.length <= 2)
+            ? CustomTabBar(
+                controller: _controller, pageController: _pageController)
+            : null);
   }
 }
