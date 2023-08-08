@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:ecommerce/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {
@@ -17,39 +16,35 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedNotchBottomBar(
+      color: AppColors.primaryColor,
       notchBottomBarController: _controller,
-      color: Colors.white,
-      showLabel: false,
-      notchColor: Colors.black87,
-      removeMargins: false,
-      bottomBarWidth: 500,
-      durationInMilliSeconds: 300,
+      durationInMilliSeconds: 200,
+      itemLabelStyle: const TextStyle(color: Colors.white),
       bottomBarItems: const [
         BottomBarItem(
           inActiveItem: Icon(
-            Icons.home_filled,
-            color: Colors.blueGrey,
+            Icons.home,
+            color: Colors.white,
           ),
           activeItem: Icon(
-            Icons.home_filled,
-            color: Colors.blueAccent,
+            Icons.home,
+            color: AppColors.primaryColor,
           ),
-          itemLabel: 'Page 1',
+          itemLabel: 'Inicio',
         ),
         BottomBarItem(
           inActiveItem: Icon(
-            Icons.home_filled,
-            color: Colors.blueGrey,
+            Icons.map_sharp,
+            color: Colors.white,
           ),
           activeItem: Icon(
-            Icons.home_filled,
-            color: Colors.blueAccent,
+            Icons.map_sharp,
+            color: AppColors.primaryColor,
           ),
-          itemLabel: 'Page 2',
+          itemLabel: 'Mapa',
         ),
       ],
       onTap: (index) {
-        log('current selected index $index');
         _pageController.jumpToPage(index);
       },
     );

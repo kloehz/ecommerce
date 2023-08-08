@@ -16,49 +16,53 @@ class HomeScrollItems extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       bloc: homeCubit,
       builder: (context, state) {
-        return CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: Container(),
-              leadingWidth: 0,
-              snap: true,
-              floating: true,
-              title: SizedBox(
-                width: width,
-                height: 40,
-                child: const CategoriesFilter(),
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 80.0),
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                leading: Container(),
+                leadingWidth: 0,
+                snap: true,
+                floating: true,
+                title: SizedBox(
+                  width: width,
+                  height: 40,
+                  child: const CategoriesFilter(),
+                ),
               ),
-            ),
-            state.when(
-                loading: () {
-                  homeCubit.getCategories();
-                  return const SliverFillRemaining(
-                      child: Center(child: CircularProgressIndicator()));
-                },
-                failed: () => const SliverFillRemaining(
-                      child: Center(
-                          child:
-                              Text('Ha ocurrido un error, intente nuevamente')),
-                    ),
-                success: (items) {
-                  return SliverPadding(
-                    padding:
-                        const EdgeInsets.only(left: 12, right: 12, top: 16),
-                    sliver: SliverGrid.builder(
-                      itemCount: items.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisSpacing: 20,
-                          mainAxisSpacing: 20,
-                          childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height * 0.8),
-                          crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return CategoryWidget(category: items[index]);
-                      },
-                    ),
-                  );
-                })
-          ],
+              state.when(
+                  loading: () {
+                    homeCubit.getCategories();
+                    return const SliverFillRemaining(
+                        child: Center(child: CircularProgressIndicator()));
+                  },
+                  failed: () => const SliverFillRemaining(
+                        child: Center(
+                            child: Text(
+                                'Ha ocurrido un error, intente nuevamente')),
+                      ),
+                  success: (items) {
+                    return SliverPadding(
+                      padding:
+                          const EdgeInsets.only(left: 12, right: 12, top: 16),
+                      sliver: SliverGrid.builder(
+                        itemCount: items.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisSpacing: 20,
+                            mainAxisSpacing: 20,
+                            childAspectRatio:
+                                MediaQuery.of(context).size.width /
+                                    (MediaQuery.of(context).size.height * 0.8),
+                            crossAxisCount: 2),
+                        itemBuilder: (context, index) {
+                          return CategoryWidget(category: items[index]);
+                        },
+                      ),
+                    );
+                  })
+            ],
+          ),
         );
       },
     );

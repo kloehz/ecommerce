@@ -64,11 +64,11 @@ class ParallaxEffectWidget extends StatelessWidget {
   }
 
   Widget _buildTitleAndSubtitle() {
-    return Positioned(
-      left: 20,
-      bottom: 20,
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8, bottom: 12),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -87,6 +87,7 @@ class ParallaxEffectWidget extends StatelessWidget {
             ),
           ),
         ],
+        // ),
       ),
     );
   }
