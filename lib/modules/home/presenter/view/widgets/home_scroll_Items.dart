@@ -1,6 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/injection.dart';
 import 'package:ecommerce/modules/home/presenter/view/cubit/home_cubit.dart';
-import 'package:ecommerce/modules/home/presenter/view/widgets/item_category_filter.dart';
+import 'package:ecommerce/modules/home/presenter/view/widgets/carousel.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/category_widget.dart';
 import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ class HomeScrollItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = context.width;
     final homeCubit = locator.get<HomeCubit>();
     return BlocBuilder<HomeCubit, HomeState>(
       bloc: homeCubit,
@@ -20,17 +20,7 @@ class HomeScrollItems extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 80.0),
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(
-                leading: Container(),
-                leadingWidth: 0,
-                snap: true,
-                floating: true,
-                title: SizedBox(
-                  width: width,
-                  height: 40,
-                  child: const CategoriesFilter(),
-                ),
-              ),
+              const SliverToBoxAdapter(child: CarouselWidget()),
               state.when(
                   loading: () {
                     homeCubit.getCategories();

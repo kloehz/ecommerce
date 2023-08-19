@@ -16,7 +16,6 @@ class CategoryWidget extends StatelessWidget {
     final width = context.width;
     return Container(
         width: width * 0.46,
-        // padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(20)),
         child: ParallaxEffectWidget(

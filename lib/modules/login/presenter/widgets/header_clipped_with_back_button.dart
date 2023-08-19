@@ -23,7 +23,7 @@ class HeaderClippedWithBackButton extends StatelessWidget {
           child: ClipPath(
               clipper: SemiCircleClipper(),
               child: Container(
-                height: 200 + safeAreaTop,
+                height: 160 + safeAreaTop,
                 width: double.infinity,
                 color: AppColors.secondaryColor,
                 child: Padding(
@@ -32,7 +32,7 @@ class HeaderClippedWithBackButton extends StatelessWidget {
                     tag: 'logoTag',
                     child: SvgPicture.asset(
                       'assets/images/index.svg',
-                      height: 200,
+                      height: 160,
                       width: double.infinity,
                     ),
                   ),
