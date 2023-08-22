@@ -4,7 +4,8 @@ import 'package:ecommerce/modules/home/presenter/view/cubit/home_cubit.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_app_bar.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_drawer.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/custom_tab_bar.dart';
-import 'package:ecommerce/modules/home/presenter/view/widgets/home_scroll_Items.dart';
+import 'package:ecommerce/modules/home/presenter/view/widgets/home_scroll_items.dart';
+import 'package:ecommerce/modules/map/presenter/view/map_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeViewState extends State<HomeView> {
 
   final List<Widget> bottomBarPages = [
     const HomeScrollItems(),
-    const HomeScrollItems(),
+    const MapView(),
   ];
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();

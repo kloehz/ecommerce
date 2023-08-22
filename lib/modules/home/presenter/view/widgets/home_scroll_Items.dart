@@ -1,9 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/injection.dart';
 import 'package:ecommerce/modules/home/presenter/view/cubit/home_cubit.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/carousel.dart';
 import 'package:ecommerce/modules/home/presenter/view/widgets/category_widget.dart';
-import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
