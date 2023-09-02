@@ -56,7 +56,7 @@ class ParallaxEffectWidget extends StatelessWidget {
             colors: [Colors.transparent, Colors.black.withOpacity(0.7)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            stops: const [0.6, 0.95],
+            stops: const [0.68, 0.95],
           ),
         ),
       ),

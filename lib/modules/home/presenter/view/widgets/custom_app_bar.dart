@@ -12,7 +12,10 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: const Text('SB', style: TextStyle(color: Colors.black),),
+      title: const Text(
+        'PubliCity',
+        style: TextStyle(color: Colors.black),
+      ),
       leading: GestureDetector(
         onTap: () {
           scaffoldKey.currentState?.openDrawer();
@@ -22,16 +25,16 @@ class CustomAppBar extends StatelessWidget {
           color: Colors.black87,
         ),
       ),
-      actions: const [
-        Padding(
-          padding: EdgeInsets.only(right: 12),
-          child: Icon(
-            Icons.search,
-            color: Colors.black87,
-            size: 30,
-          ),
-        )
-      ],
+      // actions: const [
+      //   Padding(
+      //     padding: EdgeInsets.only(right: 12),
+      //     child: Icon(
+      //       Icons.search,
+      //       color: Colors.black87,
+      //       size: 30,
+      //     ),
+      //   )
+      // ],
     );
   }
 }

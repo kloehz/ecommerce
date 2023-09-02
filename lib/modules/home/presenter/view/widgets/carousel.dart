@@ -15,12 +15,12 @@ class CarouselWidget extends StatelessWidget {
 }
 
 final List<String> imgList = [
-  'https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/303178767_501430831985703_743131834223836120_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=CZnXNMl__LsAX_rgQXI&_nc_ht=scontent.fpra1-1.fna&oh=00_AfBwkbOQeDFvCkJUXI--weAY0nhrQZxJgiSq8vPUHBQ6Ig&oe=64E52F7E',
-  'https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/308471231_760022465399500_5228489482353661784_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qth2tC5dyQ8AX9Ld9gg&_nc_ht=scontent.fpra1-1.fna&oh=00_AfBBbsuVyRlvfjCJ2PPdTe4a-uNvxkfzEHApmf83FVzABg&oe=64E446B9',
-  'https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/301392584_499509662176866_6913873356459904842_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=HfVEy0Ja_l4AX9fInv0&_nc_ht=scontent.fpra1-1.fna&oh=00_AfD2r0wAKSFooM8iY8pS_vhDD8gNFKKNyPRr44zhVbVhdw&oe=64E4FB24',
-  'https://instagram.fpra1-1.fna.fbcdn.net/v/t51.2885-19/328729786_210549828133472_1033043254643394804_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fpra1-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=gjry73v6Q9kAX_9Y5v5&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfDCK-WCBhGahr7emMw6hBPfXAyfl92fn5TGL3SdnaqbUA&oe=64E58325&_nc_sid=8b3546',
-  'https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/306948483_141802145216539_8211489437782074841_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ZJpxSRBHl6kAX_Zx3St&_nc_ht=scontent.fpra1-1.fna&oh=00_AfBdqELfIEhxzCo5kjnGlXwGH7GGd67sgvZAQlqbYFGpGw&oe=64E41927',
-  'https://scontent.fpra1-1.fna.fbcdn.net/v/t39.30808-6/302426655_782532613114394_2856161589490343967_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ie594DV-6KUAX-AG8uS&_nc_ht=scontent.fpra1-1.fna&oh=00_AfC0T9ejtW5vkI1U7893VEVSFjn3bs1ImRPuTojYfhuhWw&oe=64E45CF1'
+  'https://i.ibb.co/MZgDtqx/303178767-501430831985703-743131834223836120-n.jpg',
+  'https://i.ibb.co/Nj8fdbn/20431637-10155381195540734-7555346973007001347-n.jpg',
+  'https://i.ibb.co/G9T1tz6/306948483-141802145216539-8211489437782074841-n.jpg',
+  'https://i.ibb.co/JR8W2ph/302426655-782532613114394-2856161589490343967-n.jpg',
+  'https://i.ibb.co/714KjBG/345569242-178920545105857-30804218646237185-n.jpg',
+  'https://i.ibb.co/8BP35kN/2020-06-12.png'
 ];
 
 final List<Widget> imageSliders = imgList

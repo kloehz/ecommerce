@@ -1,18 +1,22 @@
 import 'package:ecommerce/constants/mapbox.dart';
 import 'package:ecommerce/modules/map/presenter/view/widgets/map_marker.dart';
+import 'package:ecommerce/modules/map/presenter/view/widgets/marker_description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/plugin_api.dart';
 
-class MapView extends StatelessWidget {
+class MapView extends StatefulWidget {
   const MapView({super.key});
+
+  @override
+  State<MapView> createState() => _MapViewState();
+}
+
+class _MapViewState extends State<MapView> {
+  int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 33, 32, 32),
-        title: const Text('Flutter MapBox'),
-      ),
       body: Stack(
         children: [
           FlutterMap(
@@ -37,11 +41,14 @@ class MapView extends StatelessWidget {
                     Marker(
                       height: 40,
                       width: 40,
-                      point:
-                          mapMarkers[i].location ?? MapboxConstants.myLocation,
+                      point: mapMarkers[i].location,
                       builder: (_) {
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = mapMarkers[i].id;
+                            });
+                          },
                           child: Image.asset(
                             'assets/images/map/map-marker.png',
                           ),
@@ -52,6 +59,7 @@ class MapView extends StatelessWidget {
               ),
             ],
           ),
+          MarkerDescription(selectedIndex: selectedIndex),
         ],
       ),
     );

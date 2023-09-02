@@ -41,7 +41,7 @@ class HomeScrollItems extends StatelessWidget {
                             mainAxisSpacing: 20,
                             childAspectRatio:
                                 MediaQuery.of(context).size.width /
-                                    (MediaQuery.of(context).size.height * 0.8),
+                                    (MediaQuery.of(context).size.height * 0.7),
                             crossAxisCount: 2),
                         itemBuilder: (context, index) {
                           return CategoryWidget(category: items[index]);
