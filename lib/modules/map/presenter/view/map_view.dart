@@ -12,7 +12,12 @@ class MapView extends StatefulWidget {
 }
 
 class _MapViewState extends State<MapView> {
-  MapMarker? selectedMapMarker;
+  MapMarkerModel? selectedMapMarker;
+  void setMapMarkerSelected(MapMarkerModel mapMarker) {
+    setState(() {
+      selectedMapMarker = mapMarker;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,29 +40,13 @@ class _MapViewState extends State<MapView> {
                   'accessToken': MapboxConstants.accessToken,
                 },
               ),
-              MarkerLayer(
-                markers: [
-                  for (int i = 0; i < mapMarkers.length; i++)
-                    Marker(
-                      height: 40,
-                      width: 40,
-                      point: mapMarkers[i].location,
-                      builder: (_) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() => selectedMapMarker = mapMarkers[i]);
-                          },
-                          child: Image.asset(
-                            'assets/images/map/map-marker.png',
-                          ),
-                        );
-                      },
-                    ),
-                ],
-              ),
+              MapMarker(
+                  setMarkerSelected: setMapMarkerSelected,
+                  selectedMapMarker: selectedMapMarker)
             ],
           ),
-          MarkerDescription(mapMarker: selectedMapMarker),
+          if (selectedMapMarker != null)
+            MarkerDescription(mapMarker: selectedMapMarker),
         ],
       ),
     );

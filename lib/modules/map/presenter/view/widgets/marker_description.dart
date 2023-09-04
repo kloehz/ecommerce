@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 const double BOTTOM_POSITION = 105;
 
 class MarkerDescription extends StatefulWidget {
-  final MapMarker? mapMarker;
+  final MapMarkerModel? mapMarker;
   const MarkerDescription({super.key, required this.mapMarker});
 
   @override
@@ -14,7 +14,7 @@ class MarkerDescription extends StatefulWidget {
 
 class _MarkerDescriptionState extends State<MarkerDescription> {
   int? previousId;
-  MapMarker? currentMapMarker;
+  MapMarkerModel? currentMapMarker;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +32,8 @@ class _MarkerDescriptionState extends State<MarkerDescription> {
                     })
               });
     }
+
+    if (currentMapMarker == null) return Container();
 
     return AnimatedPositioned(
       duration: const Duration(milliseconds: 250),
