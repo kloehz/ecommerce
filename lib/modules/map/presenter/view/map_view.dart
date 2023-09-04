@@ -12,7 +12,7 @@ class MapView extends StatefulWidget {
 }
 
 class _MapViewState extends State<MapView> {
-  int? selectedIndex;
+  MapMarker? selectedMapMarker;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +45,7 @@ class _MapViewState extends State<MapView> {
                       builder: (_) {
                         return GestureDetector(
                           onTap: () {
-                            setState(() {
-                              selectedIndex = mapMarkers[i].id;
-                            });
+                            setState(() => selectedMapMarker = mapMarkers[i]);
                           },
                           child: Image.asset(
                             'assets/images/map/map-marker.png',
@@ -59,7 +57,7 @@ class _MapViewState extends State<MapView> {
               ),
             ],
           ),
-          MarkerDescription(selectedIndex: selectedIndex),
+          MarkerDescription(mapMarker: selectedMapMarker),
         ],
       ),
     );

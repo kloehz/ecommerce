@@ -1,65 +1,76 @@
-import 'package:ecommerce/modules/map/presenter/view/widgets/marker_inherited.dart';
+import 'package:ecommerce/modules/map/presenter/view/widgets/map_marker.dart';
 import 'package:ecommerce/utils/shared_utils.dart';
 import 'package:flutter/material.dart';
 
+const double BOTTOM_POSITION = 105;
+
 class MarkerDescription extends StatefulWidget {
-  final int? selectedIndex;
-  const MarkerDescription({super.key, required this.selectedIndex});
+  final MapMarker? mapMarker;
+  const MarkerDescription({super.key, required this.mapMarker});
 
   @override
   State<MarkerDescription> createState() => _MarkerDescriptionState();
 }
 
 class _MarkerDescriptionState extends State<MarkerDescription> {
-  int? selectedId;
+  int? previousId;
+  MapMarker? currentMapMarker;
 
   @override
   Widget build(BuildContext context) {
     final width = context.width - 24;
+    double bottomPosition =
+        previousId != widget.mapMarker?.id ? -BOTTOM_POSITION : BOTTOM_POSITION;
 
-    return MarkerInherited(
-      onMarkerIdChanged: (int? value) {
-        setState(() {});
-      },
-      child: AnimatedPositioned(
-        duration: const Duration(milliseconds: 250),
-        left: 0,
-        bottom: 105,
-        child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 12),
-            width: width,
-            height: 80,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(12)),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                        'https://i.ibb.co/MZgDtqx/303178767-501430831985703-743131834223836120-n.jpg'),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Marcelo GNC',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w600),
-                      ),
-                      Text('Servicios mecanicos'),
-                      Text('Estrada 2018 - Tel. 444842'),
-                    ],
-                  )
-                ],
-              ),
-            )),
-      ),
+    if (previousId != widget.mapMarker?.id) {
+      Future.delayed(
+          const Duration(milliseconds: 250),
+          () => {
+                setState(() => {
+                      previousId = widget.mapMarker?.id,
+                      currentMapMarker = widget.mapMarker
+                    })
+              });
+    }
+
+    return AnimatedPositioned(
+      duration: const Duration(milliseconds: 250),
+      left: 0,
+      bottom: bottomPosition,
+      curve: Curves.fastOutSlowIn,
+      child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 12),
+          width: width,
+          height: 80,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(12)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(currentMapMarker!.image!),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      currentMapMarker!.title,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                    Text(currentMapMarker!.category ?? 'N/A'),
+                    Text(currentMapMarker!.address),
+                  ],
+                )
+              ],
+            ),
+          )),
     );
   }
 }
